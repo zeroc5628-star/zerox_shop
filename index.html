@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZER0X SHOP</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    direction:rtl;
+    font-family:'Vazirmatn', sans-serif;
+    background:#0f0f1a;
+    color:white;
+}
+
+header{
+    padding:35px;
+    text-align:center;
+    font-size:48px;
+    font-weight:900;
+    letter-spacing:3px;
+    background:linear-gradient(270deg,#ff00cc,#3333ff,#00ffee,#ff9900);
+    background-size:800% 800%;
+    animation:moveBg 8s ease infinite;
+}
+
+@keyframes moveBg{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.subtitle{
+    text-align:center;
+    margin-top:10px;
+    font-size:18px;
+    color:#aaa;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    padding:60px 20px;
+}
+
+.card{
+    background:#1b1b2f;
+    width:340px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 0 30px rgba(0,255,255,0.3);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 40px rgba(0,255,255,0.7);
+}
+
+.card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+    text-align:center;
+}
+
+.price{
+    color:#00ffee;
+    font-size:22px;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.whatsapp-btn{
+    display:inline-block;
+    background:#25D366;
+    color:white;
+    padding:14px 20px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.whatsapp-btn:hover{
+    background:#1ebe5d;
+    transform:scale(1.05);
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    margin-top:40px;
+    background:#141427;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ZER0X SHOP
+</header>
+
+<div class="subtitle">
+فروش پروژه‌های حرفه‌ای ادیت
+</div>
+
+<div class="container">
+    <div class="card">
+        <img src="cc2.jpg">
+        <div class="card-content">
+            <h2>پروژه ادیت حرفه‌ای</h2>
+            <div class="price">50,000 تومان</div>
+
+            <a class="whatsapp-btn" 
+            href="https://wa.me/989019914885?text=سلام%20برای%20خرید%20پروژه%20ZER0X%20پیام%20میدم" 
+            target="_blank">
+            ثبت سفارش در واتساپ
+            </a>
+
+        </div>
+    </div>
+</div>
+
+<footer>
+ارتباط از طریق واتساپ: 09019914885
+</footer>
+
+</body>
+</html>
