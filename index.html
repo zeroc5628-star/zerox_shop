@@ -9,112 +9,149 @@
 
 <style>
 body{
-    margin:0;
-    direction:rtl;
-    font-family:'Vazirmatn', sans-serif;
-    background:#0d0d14;
-    color:white;
+margin:0;
+direction:rtl;
+font-family:'Vazirmatn', sans-serif;
+background:#0d0d14;
+color:white;
 }
 
+/* هدر */
 header{
-    padding:40px;
-    text-align:center;
-    font-size:48px;
-    font-weight:900;
-    letter-spacing:4px;
-    background:linear-gradient(270deg,#ff0000,#9900ff,#00ffee,#ff0000);
-    background-size:800% 800%;
-    animation:moveBg 8s ease infinite;
+padding:35px;
+text-align:center;
+font-size:40px;
+font-weight:900;
+background:linear-gradient(270deg,#ff0000,#9900ff,#00ffee,#ff0000);
+background-size:800% 800%;
+animation:moveBg 8s ease infinite;
 }
 
 @keyframes moveBg{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
-}
-
-.subtitle{
-    text-align:center;
-    margin-top:10px;
-    color:#aaa;
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 .container{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:40px;
-    padding:60px 20px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:40px;
+padding:50px;
 }
 
 .card{
-    background:#1a1a2e;
-    width:320px;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 0 25px rgba(255,0,0,0.3);
-    transition:0.4s;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 0 40px rgba(255,0,0,0.7);
+background:#1a1a2e;
+width:320px;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 0 25px rgba(255,0,0,0.4);
 }
 
 .card img{
-    width:100%;
-    height:230px;
-    object-fit:cover;
+width:100%;
+height:230px;
+object-fit:cover;
 }
 
 .card-content{
-    padding:20px;
-    text-align:center;
+padding:20px;
+text-align:center;
 }
 
 .price{
-    margin:15px 0;
-    font-size:20px;
-    font-weight:bold;
-    color:#00ffee;
+margin:10px 0;
+font-size:20px;
+color:#00ffee;
+font-weight:bold;
+}
+
+.buttons{
+display:flex;
+gap:10px;
+justify-content:center;
+flex-wrap:wrap;
 }
 
 .neon-btn{
-    position:relative;
-    display:inline-block;
-    padding:14px 25px;
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-    border-radius:12px;
-    background:#111;
-    overflow:hidden;
+position:relative;
+padding:10px 18px;
+color:white;
+text-decoration:none;
+background:#111;
+border-radius:10px;
+overflow:hidden;
+font-weight:bold;
 }
 
 .neon-btn::before{
-    content:"";
-    position:absolute;
-    top:-2px;
-    left:-2px;
-    right:-2px;
-    bottom:-2px;
-    background:linear-gradient(90deg,red,orange,red);
-    background-size:400%;
-    z-index:-1;
-    border-radius:14px;
-    animation:neonRotate 3s linear infinite;
+content:"";
+position:absolute;
+top:-2px;
+left:-2px;
+right:-2px;
+bottom:-2px;
+background:linear-gradient(90deg,red,orange,red);
+background-size:400%;
+z-index:-1;
+border-radius:12px;
+animation:neonRotate 3s linear infinite;
 }
 
 @keyframes neonRotate{
-    0%{background-position:0%;}
-    100%{background-position:400%;}
+0%{background-position:0%;}
+100%{background-position:400%;}
 }
 
-footer{
-    text-align:center;
-    padding:30px;
-    background:#141427;
-    margin-top:40px;
+/* صفحه اطلاعات */
+.detail-page{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+color:white;
+overflow:auto;
+}
+
+.detail-content{
+position:relative;
+z-index:2;
+padding:40px;
+text-align:center;
+}
+
+.detail-box{
+background:rgba(0,0,0,0.6);
+padding:30px;
+border-radius:15px;
+max-width:600px;
+margin:20px auto;
+}
+
+.detail-image-box{
+background:rgba(0,0,0,0.7);
+padding:15px;
+border-radius:15px;
+width:250px;
+margin:0 auto 20px auto;
+}
+
+.detail-image-box img{
+width:100%;
+border-radius:10px;
+}
+
+.back-btn{
+display:inline-block;
+margin-top:20px;
+padding:8px 15px;
+background:red;
+color:white;
+text-decoration:none;
+border-radius:8px;
 }
 </style>
 </head>
@@ -122,43 +159,113 @@ footer{
 <body>
 
 <header>ZER0X SHOP</header>
-<div class="subtitle">فروش پروژه و خدمات ادیت حرفه‌ای</div>
 
 <div class="container">
 
-    <!-- محصول اول -->
-    <div class="card">
-        <img src="cc2.jpg">
-        <div class="card-content">
-            <h2>پروژه ادیت cc2</h2>
-            <div class="price">50,000 تومان</div>
-            <a class="neon-btn"
-            href="https://wa.me/989019914885?text=سلام%20برای%20خرید%20cc2%20اومدم"
-            target="_blank">
-            ثبت سفارش
-            </a>
-        </div>
-    </div>
+<!-- محصول cc2 -->
+<div class="card">
+<img src="cc2.jpg">
+<div class="card-content">
+<h2>پروژه ادیت cc2</h2>
+<div class="price">10,000 تومان</div>
 
-    <!-- محصول دوم -->
-    <div class="card">
-        <img src="af.jpg">
-        <div class="card-content">
-            <h2>سفارش ادیت اختصاصی</h2>
-            <div class="price">قیمت: توافقی</div>
-            <a class="neon-btn"
-            href="https://wa.me/989019914885?text=سلام%20برای%20سفارش%20ادیت%20اومدم"
-            target="_blank">
-            ثبت سفارش
-            </a>
-        </div>
-    </div>
+<div class="buttons">
+<a class="neon-btn"
+href="https://wa.me/989019914885?text=سلام%20برای%20خرید%20cc2%20اومدم"
+target="_blank">
+ثبت سفارش
+</a>
+
+<a class="neon-btn" onclick="openDetail('cc2')">
+اطلاعات بیشتر
+</a>
+</div>
+
+</div>
+</div>
+
+<!-- محصول ادیت اختصاصی -->
+<div class="card">
+<img src="af.jpg">
+<div class="card-content">
+<h2>سفارش ادیت اختصاصی</h2>
+<div class="price">توافقی</div>
+
+<div class="buttons">
+<a class="neon-btn"
+href="https://wa.me/989019914885?text=سلام%20برای%20سفارش%20ادیت%20اومدم"
+target="_blank">
+ثبت سفارش
+</a>
+
+<a class="neon-btn" onclick="openDetail('edit')">
+اطلاعات بیشتر
+</a>
+</div>
+
+</div>
+</div>
 
 </div>
 
-<footer>
-ارتباط مستقیم واتساپ: 09019914885
-</footer>
+<!-- صفحه اطلاعات cc2 -->
+<div id="cc2" class="detail-page" style="background:url('cc2.jpg') center/cover no-repeat;">
+<div style="position:absolute;width:100%;height:100%;backdrop-filter:blur(8px);background:rgba(0,0,0,0.6);"></div>
+
+<div class="detail-content">
+<header>ZER0X SHOP</header>
+
+<div class="detail-box">
+
+<div class="detail-image-box">
+<img src="cc2.jpg">
+</div>
+
+<h2>افکت برای الایت موشن سینماتیک</h2>
+
+<a class="back-btn" onclick="closeDetail()">بازگشت</a>
+
+</div>
+</div>
+</div>
+
+<!-- صفحه اطلاعات ادیت -->
+<div id="edit" class="detail-page" style="background:url('af.jpg') center/cover no-repeat;">
+<div style="position:absolute;width:100%;height:100%;backdrop-filter:blur(8px);background:rgba(0,0,0,0.6);"></div>
+
+<div class="detail-content">
+<header>ZER0X SHOP</header>
+
+<div class="detail-box">
+
+<div class="detail-image-box">
+<img src="af.jpg">
+</div>
+
+<h2>
+تدوین ویدیو اینستاگرام<br>
+یوتیوب<br>
+تیک تاک<br>
+تبلیغاتی
+</h2>
+
+<a class="back-btn" onclick="closeDetail()">بازگشت</a>
+
+</div>
+</div>
+</div>
+
+<script>
+function openDetail(id){
+document.getElementById(id).style.display="block";
+}
+
+function closeDetail(){
+document.querySelectorAll('.detail-page').forEach(function(el){
+el.style.display="none";
+});
+}
+</script>
 
 </body>
 </html>
