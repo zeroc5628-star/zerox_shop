@@ -5,106 +5,106 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZER0X SHOP</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
-
 <style>
 body{
 margin:0;
-direction:rtl;
-font-family:'Vazirmatn', sans-serif;
+font-family:tahoma;
 background:#0d0d14;
 color:white;
+text-align:center;
 }
 
 /* هدر */
 header{
-padding:35px;
-text-align:center;
-font-size:40px;
-font-weight:900;
-background:linear-gradient(270deg,#ff0000,#9900ff,#00ffee,#ff0000);
-background-size:800% 800%;
-animation:moveBg 8s ease infinite;
+font-size:32px;
+font-weight:bold;
+padding:20px;
+background:linear-gradient(45deg,#ff0000,#9900ff,#00ffff);
+background-size:300% 300%;
+animation:colorMove 6s infinite alternate;
 }
 
-@keyframes moveBg{
+@keyframes colorMove{
 0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
+100%{background-position:100% 50%;}
 }
 
-.container{
+/* منو بالا */
+.top-menu{
+display:flex;
+justify-content:center;
+gap:25px;
+background:#111;
+padding:12px 0;
+}
+
+.nav-item{
+cursor:pointer;
+padding:8px 18px;
+border-radius:8px;
+transition:0.3s;
+}
+
+.nav-item:hover{
+background:linear-gradient(45deg,#ff0000,#9900ff,#00ffff);
+background-size:300% 300%;
+animation:colorMove 3s infinite alternate;
+}
+
+/* محصولات */
+.products{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:40px;
-padding:50px;
+gap:30px;
+padding:40px;
 }
 
 .card{
-background:#1a1a2e;
-width:320px;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 0 25px rgba(255,0,0,0.4);
+background:#151520;
+padding:20px;
+border-radius:15px;
+width:260px;
+box-shadow:0 0 15px rgba(255,0,0,0.3);
 }
 
 .card img{
 width:100%;
-height:230px;
-object-fit:cover;
-}
-
-.card-content{
-padding:20px;
-text-align:center;
+border-radius:10px;
 }
 
 .price{
+color:#00ff99;
+font-size:18px;
 margin:10px 0;
-font-size:20px;
-color:#00ffee;
-font-weight:bold;
 }
 
-.buttons{
-display:flex;
-gap:10px;
-justify-content:center;
-flex-wrap:wrap;
-}
-
-.neon-btn{
-position:relative;
+.btn{
+display:inline-block;
+margin:8px;
 padding:10px 18px;
-color:white;
+border-radius:8px;
+cursor:pointer;
 text-decoration:none;
-background:#111;
-border-radius:10px;
-overflow:hidden;
-font-weight:bold;
+color:white;
 }
 
-.neon-btn::before{
-content:"";
-position:absolute;
-top:-2px;
-left:-2px;
-right:-2px;
-bottom:-2px;
-background:linear-gradient(90deg,red,orange,red);
-background-size:400%;
-z-index:-1;
-border-radius:12px;
-animation:neonRotate 3s linear infinite;
+/* نئون */
+.order-btn{
+border:2px solid red;
+animation:neon 1.5s infinite alternate;
 }
 
-@keyframes neonRotate{
-0%{background-position:0%;}
-100%{background-position:400%;}
+@keyframes neon{
+from{box-shadow:0 0 5px red;}
+to{box-shadow:0 0 20px red;}
 }
 
-/* صفحه اطلاعات */
+.info-btn{
+background:#333;
+}
+
+/* صفحات داخلی */
 .detail-page{
 display:none;
 position:fixed;
@@ -112,46 +112,65 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-color:white;
+background:#0d0d14;
 overflow:auto;
+z-index:1000;
 }
 
 .detail-content{
-position:relative;
-z-index:2;
-padding:40px;
-text-align:center;
+padding:20px;
 }
 
 .detail-box{
-background:rgba(0,0,0,0.6);
-padding:30px;
+max-width:700px;
+margin:auto;
+background:#151520;
+padding:25px;
 border-radius:15px;
-max-width:600px;
-margin:20px auto;
-}
-
-.detail-image-box{
-background:rgba(0,0,0,0.7);
-padding:15px;
-border-radius:15px;
-width:250px;
-margin:0 auto 20px auto;
-}
-
-.detail-image-box img{
-width:100%;
-border-radius:10px;
 }
 
 .back-btn{
 display:inline-block;
 margin-top:20px;
-padding:8px 15px;
-background:red;
-color:white;
-text-decoration:none;
+padding:10px 20px;
+background:#ff0000;
 border-radius:8px;
+cursor:pointer;
+}
+
+/* انتخاب شبکه */
+#socialBox{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+z-index:2000;
+justify-content:center;
+align-items:center;
+}
+
+.social-inner{
+background:#151520;
+padding:25px;
+border-radius:15px;
+width:280px;
+}
+
+.social-btn{
+display:block;
+margin:10px 0;
+padding:10px;
+background:#222;
+border-radius:8px;
+cursor:pointer;
+}
+.social-btn:hover{
+background:linear-gradient(45deg,#ff0000,#9900ff,#00ffff);
+background-size:300% 300%;
+animation:colorMove 3s infinite alternate;
 }
 </style>
 </head>
@@ -160,110 +179,149 @@ border-radius:8px;
 
 <header>ZER0X SHOP</header>
 
-<div class="container">
+<div class="top-menu">
+<div class="nav-item" onclick="window.scrollTo(0,0)">خانه</div>
+<div class="nav-item" onclick="openDetail('about')">درباره ما</div>
+<div class="nav-item" onclick="openDetail('contact')">ارتباط با ما</div>
+</div>
 
-<!-- محصول cc2 -->
+<div class="products">
+
+<!-- cc2 -->
 <div class="card">
 <img src="cc2.jpg">
-<div class="card-content">
-<h2>پروژه ادیت cc2</h2>
-<div class="price">10,000 تومان</div>
-
-<div class="buttons">
-<a class="neon-btn"
-href="https://wa.me/989019914885?text=سلام%20برای%20خرید%20cc2%20اومدم"
-target="_blank">
-ثبت سفارش
-</a>
-
-<a class="neon-btn" onclick="openDetail('cc2')">
-اطلاعات بیشتر
-</a>
+<h3>پروژه cc2</h3>
+<div class="price">10000 تومان</div>
+<div class="btn order-btn" onclick="openSocial('خرید پروژه cc2 با قیمت 10000 تومان')">ثبت سفارش</div>
 </div>
 
-</div>
-</div>
-
-<!-- محصول ادیت اختصاصی -->
+<!-- ادیت -->
 <div class="card">
 <img src="af.jpg">
-<div class="card-content">
-<h2>سفارش ادیت اختصاصی</h2>
+<h3>سفارش ادیت</h3>
 <div class="price">توافقی</div>
-
-<div class="buttons">
-<a class="neon-btn"
-href="https://wa.me/989019914885?text=سلام%20برای%20سفارش%20ادیت%20اومدم"
-target="_blank">
+<div class="btn order-btn" onclick="openSocial('سفارش ادیت (توافقی)')">ثبت سفارش</div>
+</div>
+<!-- افزایش کیفیت عکس -->
+<div class="card">
+<img src="4k.jpg">
+<h3>افزایش کیفیت عکس</h3>
+<div style="color:#ffcc00;font-size:14px;">💎 قیمت مناسب</div>
+<div class="price">50000 تومان</div>
+<div class="btn order-btn" 
+onclick="openSocial('سفارش افزایش کیفیت عکس با قیمت 50000 تومان')">
 ثبت سفارش
-</a>
-
-<a class="neon-btn" onclick="openDetail('edit')">
-اطلاعات بیشتر
-</a>
-</div>
-
 </div>
 </div>
 
+<!-- فوتوشاپ -->
+<div class="card">
+<img src="ps.jpg">
+<h3>طراحی و ادیت با فوتوشاپ</h3>
+<div style="color:#ffcc00;font-size:14px;">💎 قیمت مناسب</div>
+<div class="price">توافقی</div>
+<div class="btn order-btn" 
+onclick="openSocial('سفارش طراحی و ادیت فوتوشاپ (توافقی)')">
+ثبت سفارش
+</div>
 </div>
 
-<!-- صفحه اطلاعات cc2 -->
-<div id="cc2" class="detail-page" style="background:url('cc2.jpg') center/cover no-repeat;">
-<div style="position:absolute;width:100%;height:100%;backdrop-filter:blur(8px);background:rgba(0,0,0,0.6);"></div>
+</div>
 
+<!-- درباره ما کامل -->
+<div id="about" class="detail-page">
 <div class="detail-content">
 <header>ZER0X SHOP</header>
-
 <div class="detail-box">
+<h2>درباره ZER0X</h2>
 
-<div class="detail-image-box">
-<img src="cc2.jpg">
+<p>
+من بیش از <b>۷ سال سابقه حرفه‌ای</b> در حوزه ادیت و طراحی دیجیتال دارم و تمرکزم روی ساخت محتوای خلاقانه، سینماتیک و حرفه‌ای برای شبکه‌های اجتماعی و برندهاست.
+</p>
+
+<h3>💻 مهارت‌ها:</h3>
+<ul style="text-align:right;line-height:2;">
+<li>ادیت حرفه‌ای ویدیو با Premiere Pro</li>
+<li>ساخت جلوه‌های ویژه و موشن گرافیک با After Effects</li>
+<li>طراحی و روتوش حرفه‌ای با Photoshop</li>
+<li>ساخت پروژه‌های موبایلی با Alight Motion</li>
+<li>طراحی تصاویر خلاقانه با هوش مصنوعی</li>
+</ul>
+
+<p>
+📱 مسلط به ادیت هم در موبایل و هم در کامپیوتر<br>
+🎬 ساخت تیزر تبلیغاتی، ویدیو اینستاگرام، یوتیوب، تیک‌تاک و پروژه‌های سینمایی کوتاه
+</p>
+
+<p><b>
+هدف من اینه که هر پروژه‌ای که دستم میاد، تبدیل به یه اثر حرفه‌ای و متفاوت بشه.
+</b></p>
+
+<div class="back-btn" onclick="closeDetail()">بازگشت</div>
+</div>
+</div>
 </div>
 
-<h2>افکت برای الایت موشن سینماتیک</h2>
-
-<a class="back-btn" onclick="closeDetail()">بازگشت</a>
-
-</div>
-</div>
-</div>
-
-<!-- صفحه اطلاعات ادیت -->
-<div id="edit" class="detail-page" style="background:url('af.jpg') center/cover no-repeat;">
-<div style="position:absolute;width:100%;height:100%;backdrop-filter:blur(8px);background:rgba(0,0,0,0.6);"></div>
-
+<!-- ارتباط -->
+<div id="contact" class="detail-page">
 <div class="detail-content">
 <header>ZER0X SHOP</header>
-
 <div class="detail-box">
-
-<div class="detail-image-box">
-<img src="af.jpg">
+<h2>ارتباط با ما</h2>
+<p>
+<a href="https://wa.me/989019914885" target="_blank">واتساپ</a><br><br>
+<a href="https://ig.me/m/ze14x_" target="_blank">اینستاگرام</a><br><br>
+<a href="https://rubika.ir/zerox_edit" target="_blank">روبیکا</a>
+</p>
+<div class="back-btn" onclick="closeDetail()">بازگشت</div>
+</div>
+</div>
 </div>
 
-<h2>
-تدوین ویدیو اینستاگرام<br>
-یوتیوب<br>
-تیک تاک<br>
-تبلیغاتی
-</h2>
-
-<a class="back-btn" onclick="closeDetail()">بازگشت</a>
-
-</div>
+<!-- انتخاب شبکه -->
+<div id="socialBox">
+<div class="social-inner">
+<h3>از کجا ثبت سفارش کنیم؟</h3>
+<div class="social-btn" onclick="goSocial('whatsapp')">واتساپ</div>
+<div class="social-btn" onclick="goSocial('instagram')">اینستاگرام</div>
+<div class="social-btn" onclick="goSocial('rubika')">روبیکا</div>
+<br>
+<div class="back-btn" onclick="closeSocial()">بستن</div>
 </div>
 </div>
 
 <script>
+let currentMessage="";
+
 function openDetail(id){
 document.getElementById(id).style.display="block";
 }
 
 function closeDetail(){
-document.querySelectorAll('.detail-page').forEach(function(el){
-el.style.display="none";
-});
+document.querySelectorAll(".detail-page").forEach(p=>p.style.display="none");
+}
+
+function openSocial(message){
+currentMessage=message;
+document.getElementById("socialBox").style.display="flex";
+}
+
+function closeSocial(){
+document.getElementById("socialBox").style.display="none";
+}
+
+function goSocial(type){
+let text=encodeURIComponent("سلام، برای "+currentMessage+" پیام دادم.");
+
+if(type==="whatsapp"){
+window.open("https://wa.me/989019914885?text="+text);
+}
+if(type==="instagram"){
+window.open("https://ig.me/m/ze14x_");
+}
+if(type==="rubika"){
+window.open("https://rubika.ir/zerox_edit");
+}
 }
 </script>
 
